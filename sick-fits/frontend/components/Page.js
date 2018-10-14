@@ -6,11 +6,11 @@ import Meta from "./Meta";
 export default class Page extends Component {
   render() {
     return (
-        <div>
-            <Meta />
-            <Header />
-            {this.props.children}
-        </div>
-    )
+      <div>
+        <Meta />
+        <Header />
+        {this.props.children}
+      </div>
+    );
   }
 }
