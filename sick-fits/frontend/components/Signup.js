@@ -28,10 +28,10 @@ const SIGNUP_MUTATION = gql`
 
 class Signup extends Component {
   state = {
-    email: null,
-    firstName: null,
-    lastName: null,
-    password: null
+    email: "",
+    firstName: "",
+    lastName: "",
+    password: ""
   };
 
   saveToState = e => {
@@ -49,10 +49,10 @@ class Signup extends Component {
                 e.preventDefault();
                 await signup();
                 this.setState({
-                  email: null,
-                  firstName: null,
-                  lastName: null,
-                  password: null
+                  email: "",
+                  firstName: "",
+                  lastName: "",
+                  password: ""
                 });
               }}
             >
