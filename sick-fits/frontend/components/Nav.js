@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import NavStyles from "./styles/NavStyles";
 import User from "./User";
+import Signout from "./Signout";
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
@@ -26,6 +27,7 @@ const Nav = () => (
               <Link href="/me">
                 <a>Account</a>
               </Link>
+              <Signout />
             </>
           )}
           {!me && (
