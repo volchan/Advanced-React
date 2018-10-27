@@ -10,6 +10,17 @@ const CURRENT_USER_QUERY = gql`
       firstName
       lastName
       permissions
+      cart {
+        id
+        quantity
+        item {
+          id
+          title
+          price
+          image
+          description
+        }
+      }
     }
   }
 `;
