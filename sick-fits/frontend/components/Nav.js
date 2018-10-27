@@ -5,6 +5,8 @@ import NavStyles from "./styles/NavStyles";
 import User from "./User";
 import Signout from "./Signout";
 import { TOGGLE_CART_MUTATION } from "./Cart";
+import CartCount from "./CartCount";
+import CartItem from "./CartItem";
 
 String.prototype.capitalize = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
@@ -32,7 +34,17 @@ const Nav = () => (
               <Signout />
               <Mutation mutation={TOGGLE_CART_MUTATION}>
                 {toggleCart => {
-                  return <button onClick={toggleCart}>My cart</button>;
+                  return (
+                    <button onClick={toggleCart}>
+                      My cart{" "}
+                      <CartCount
+                        count={me.cart.reduce(
+                          (tally, CartItem) => tally + CartItem.quantity,
+                          0
+                        )}
+                      />
+                    </button>
+                  );
                 }}
               </Mutation>
             </>
