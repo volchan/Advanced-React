@@ -13,13 +13,24 @@ const CartItemStyles = styled.li`
   img {
     margin-right: 10px;
   }
-  h3, p {
+  h3,
+  p {
     margin: 0;
   }
 `;
 
 const CartItem = ({ cartItem }) => {
-  return <CartItemStyles>
+  if (!cartItem.item)
+    return (
+      <CartItemStyles>
+        <p></p>
+        <p>This Item has been removed!</p>
+        <RemoveFromCart id={cartItem.id} />
+      </CartItemStyles>
+    );
+
+  return (
+    <CartItemStyles>
       <img width="100" src={cartItem.item.image} alt={cartItem.item.title} />
       <div className="cart-item-details">
         <h3>{cartItem.item.title}</h3>
@@ -31,8 +42,9 @@ const CartItem = ({ cartItem }) => {
           </em>
         </p>
       </div>
-      <RemoveFromCart id={cartItem.id}/>
-    </CartItemStyles>;
+      <RemoveFromCart id={cartItem.id} />
+    </CartItemStyles>
+  );
 };
 
 CartItem.prototypes = {

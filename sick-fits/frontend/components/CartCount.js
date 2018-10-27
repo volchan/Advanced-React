@@ -10,7 +10,8 @@ const Dot = styled.div`
   padding: 0.5rem;
   min-width: 3rem;
   margin-left: 1rem;
-  font-weight: 100;
+  font-weight: 300;
+  font-size: 1.5rem;
   font-feature-settings: "tnum";
   font-variant-numeric: tabular-nums;
 `;
