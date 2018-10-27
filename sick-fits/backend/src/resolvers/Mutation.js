@@ -56,7 +56,7 @@ const Mutations = {
       ["ADMIN", "ITEMDELETE"].includes(permission)
     );
     if (!ownsItem && !hasPermissions) {
-      throw new Error("You can't do that!!!!")
+      throw new Error("You can't do that!!!!");
     }
     // delete it!
     return ctx.db.mutation.deleteItem({ where }, info);
@@ -202,6 +202,40 @@ const Mutations = {
       },
       info
     );
+  },
+  async addToCart(parent, args, ctx, info) {
+    // Make sure they are signed in
+    const userId = ctx.request.userId;
+    if (!userId) {
+      throw new Error("You must be logged in!");
+    }
+    // Query the user's current cart
+    const [existingCartItem] = await ctx.db.query.cartItems({
+      where: {
+        user: {
+          id: userId
+        },
+        item: { id: args.id }
+      }
+    });
+    // Check if that item is already in their cart and increment by one if it is
+    if (existingCartItem) {
+      return ctx.db.mutation.updateCartItem({
+        where: { id: existingCartItem.id },
+        data: { quantity: existingCartItem.quantity + 1 }
+      }, info);
+    }
+    // If it's not, create a fresh CartItem for that user
+    return ctx.db.mutation.createCartItem({
+      data: {
+        user: {
+          connect: { id: userId }
+        },
+        item: {
+          connect: { id: args.id }
+        }
+      }
+    }, info);
   }
 };
 
