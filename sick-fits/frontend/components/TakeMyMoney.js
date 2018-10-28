@@ -29,14 +29,15 @@ const CREATE_ORDER_MUTATION = gql`
 `;
 
 class TakeMyMoney extends Component {
-  onToken = (res, createOrder) => {
-    createOrder({
+  onToken = async (res, createOrder) => {
+    const order = await createOrder({
       variables: {
         token: res.id
       }
     }).catch(err => {
       alert(err.message);
     });
+    console.log(order);
   };
 
   render() {
