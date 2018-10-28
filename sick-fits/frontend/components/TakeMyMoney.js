@@ -30,6 +30,7 @@ const CREATE_ORDER_MUTATION = gql`
 
 class TakeMyMoney extends Component {
   onToken = async (res, createOrder) => {
+    NProgress.start()
     const order = await createOrder({
       variables: {
         token: res.id
@@ -37,7 +38,10 @@ class TakeMyMoney extends Component {
     }).catch(err => {
       alert(err.message);
     });
-    console.log(order);
+    Router.push({
+      pathname: "/order",
+      query: { id: order.data.createOrder.id }
+    });
   };
 
   render() {
@@ -59,7 +63,7 @@ class TakeMyMoney extends Component {
                     description={`Order of ${itemsCount} item${
                       itemsCount > 1 ? "s" : ""
                     }.`}
-                    image={me.cart[0].item && me.cart[0].item.image}
+                    image={me.cart.length && me.cart[0].item && me.cart[0].item.image}
                     stripeKey="pk_test_t178iCV0kIwX7Gm5MzbUGSEv"
                     email={me.email}
                     token={res => this.onToken(res, createOrder)}
