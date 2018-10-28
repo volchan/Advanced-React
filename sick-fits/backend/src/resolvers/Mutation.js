@@ -263,6 +263,44 @@ const Mutations = {
     }
     // delete that cart item
     return ctx.db.mutation.deleteCartItem({ where: { id: args.id } }, info);
+  },
+  async createOrder(parent, args, ctx, info) {
+    // query the current user and make sure they are signed in
+    const userId = ctx.request.userId;
+    if (!userId) {
+      throw new Error("You must be logged in!");
+    }
+    const user = await ctx.db.query.user(
+      { where: { id: userId } },
+      `{
+        id
+        firstName
+        lastName
+        email
+        cart {
+          id
+          quantity
+          item {
+            id
+            title
+            price
+            description
+            image
+            largeImage
+          }
+        }
+      }`
+    );
+    // recalculate the total for the price
+    const amount = user.cart.reduce(
+      (tally, cartItem) => tally + cartItem.item.price * cartItem.quantity,
+      0
+    );
+    // create the stripe charge
+    // convert the cartItems to OrderItems
+    // create the Order
+    // clean up - clear the users cart, delete cartItems
+    // return the Order to the client
   }
 };
 
