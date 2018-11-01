@@ -17,6 +17,7 @@ type User {
   resetTokenExpiry: Float
   permissions: [Permission]
   cart: [CartItem!]!
+  orders: [Order!]!
 }
 
 type Item {
