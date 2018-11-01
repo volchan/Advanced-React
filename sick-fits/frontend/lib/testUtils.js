@@ -17,7 +17,8 @@ const fakeItem = () => ({
 const fakeUser = () => ({
   __typename: 'User',
   id: '4234',
-  name: casual.name,
+  firstName: casual.first_name,
+  lastName: casual.last_name,
   email: casual.email,
   permissions: ['ADMIN'],
   orders: [],
