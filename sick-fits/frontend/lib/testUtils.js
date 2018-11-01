@@ -29,6 +29,7 @@ const fakeOrderItem = () => ({
   __typename: 'OrderItem',
   id: casual.uuid,
   image: `${casual.word}.jpg`,
+  largeImage: `${casual.word}_large.jpg`,
   title: casual.words(),
   price: 4234,
   quantity: 1,

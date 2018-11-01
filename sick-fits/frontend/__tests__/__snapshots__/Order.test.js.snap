@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Order /> renders the order 1`] = `
+<div
+  className="OrderStyles-sc-4oqalm-0 hlKMGO"
+  data-test="order"
+>
+  <SideEffect(Head)>
+    <Head />
+  </SideEffect(Head)>
+  <p>
+    <span>
+      Order ID:
+    </span>
+    <span>
+      ord123
+    </span>
+  </p>
+  <p>
+    <span>
+      Charge:
+    </span>
+    <span>
+      ch_123
+    </span>
+  </p>
+  <p>
+    <span>
+      Date:
+    </span>
+    <span>
+      1 April 2018 - 02:00 AM
+    </span>
+  </p>
+  <p>
+    <span>
+      Order Total:
+    </span>
+    <span>
+      400 €
+    </span>
+  </p>
+  <p>
+    <span>
+      Item count:
+    </span>
+    <span>
+      2
+    </span>
+  </p>
+  <div
+    className="items"
+  >
+    <div
+      className="order-item"
+      key="3a430a73-c9e9-4bcc-b46a-41618965ffea"
+    >
+      <img
+        alt="non omnis consequatur enim quia autem et"
+        src="reprehenderit.jpg"
+      />
+      <div
+        className="item-details"
+      >
+        <h2>
+          non omnis consequatur enim quia autem et
+        </h2>
+        <p>
+          Qty: 
+          1
+        </p>
+        <p>
+          Each: 
+          42,34 €
+        </p>
+        <p>
+          Subtotal: 
+          42,34 €
+        </p>
+        <p>
+          Description: 
+          modi tenetur amet modi reprehenderit omnis adipisci
+        </p>
+      </div>
+    </div>
+    <div
+      className="order-item"
+      key="293e0904-82fd-403e-a08d-8d81098deec8"
+    >
+      <img
+        alt="exercitationem omnis laborum exercitationem est sapiente laudantium"
+        src="quia.jpg"
+      />
+      <div
+        className="item-details"
+      >
+        <h2>
+          exercitationem omnis laborum exercitationem est sapiente laudantium
+        </h2>
+        <p>
+          Qty: 
+          1
+        </p>
+        <p>
+          Each: 
+          42,34 €
+        </p>
+        <p>
+          Subtotal: 
+          42,34 €
+        </p>
+        <p>
+          Description: 
+          molestias assumenda quasi adipisci mollitia iste itaque
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

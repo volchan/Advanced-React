@@ -22,6 +22,7 @@ const USER_ORDERS_QUERY = gql`
         description
         quantity
         image
+        largeImage
       }
     }
   }

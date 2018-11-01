@@ -47,7 +47,8 @@ class TakeMyMoney extends Component {
   render() {
     return (
       <User>
-        {({ data: { me } }) => {
+        {({ data: { me }, loading }) => {
+          if (loading) return null;
           const itemsCount = totalItems(me.cart);
           return (
             <Mutation
@@ -81,3 +82,4 @@ class TakeMyMoney extends Component {
 }
 
 export default TakeMyMoney;
+export { CREATE_ORDER_MUTATION };
